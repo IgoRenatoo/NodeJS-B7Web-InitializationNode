@@ -1,11 +1,13 @@
-import {Router, Request, Response} from 'express';
+import {Router, Request, Response, query} from 'express';
 
 const router = Router();
 
 router.get('/', (req:Request , res:Response) =>{
-  res.render('home');
+  let name: string = req.query.name as string;
+  res.render('pages/home',{
+    name
+  });
 });
-
 router.get('/contato', (req:Request , res:Response) =>{
   let name: string = 'Igor';
   let x: boolean = true;
@@ -13,21 +15,12 @@ router.get('/contato', (req:Request , res:Response) =>{
     firstName: 'Igor',
     lastName: 'Renato',
     lastDoLastName: 'Cordeiro'
-  };
-  
-  
-  res.render('contact', {
-    name,object,x
-  });
+  };  
+  res.render('pages/contact', {
+    name, object, x
+  })
 });
-
 router.get('/lista', (req:Request , res:Response) =>{
   res.send('Acessou página lista!')
 });
-
-router.get('/tabela', (req:Request , res:Response) =>{
-  res.send('Acessou página tabela!')
-});
-
-
 export default router;

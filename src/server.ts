@@ -20,7 +20,7 @@ server.use('/static', express.static(path.join(__dirname,'../public')));
 server.use(mainRoutes);
 
 server.use((req: Request, res: Response) => {
-  res.status(404).render('error');
+  res.status(404).render('pages/error');
 });
 
 server.listen(3000);

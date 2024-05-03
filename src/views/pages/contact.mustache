@@ -1,0 +1,11 @@
+{{>partials/header}}
+  
+  {{#x}} {{! Estrutura If }}
+    <p> Sem amigos {{object.lastName}}! </p>
+  {{/x}}
+
+  {{^x}} {{! Estrutura Else }}
+    <p> Com amigos {{object.firstName}}! </p>
+  {{/x}}
+  
+{{>partials/footer}}
