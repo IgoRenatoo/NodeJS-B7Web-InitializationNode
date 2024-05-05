@@ -1,9 +1,14 @@
 import {Router, Request, Response, query} from 'express';
 
 const router = Router();
-
 router.get('/', (req:Request , res:Response) =>{
-  let name: string = req.query.name as string;
+  res.render('pages/home');
+});
+router.post('/', (req:Request , res:Response) =>{
+  let name: string = '';
+  if(req.body.name){
+    name = req.body.name as string;
+  }
   res.render('pages/home',{
     name
   });
@@ -20,7 +25,7 @@ router.get('/contato', (req:Request , res:Response) =>{
     name, object, x
   })
 });
-router.get('/lista', (req:Request , res:Response) =>{
-  res.send('Acessou página lista!')
+router.get('/idade', (req:Request , res:Response) =>{
+  res.render('Acessou página lista!')
 });
 export default router;

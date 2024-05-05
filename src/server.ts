@@ -11,11 +11,10 @@ server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'mustache');
 //  Configurar o Mustache como o motor de renderização para arquivos com extensão '.mustache'.
 server.engine('mustache', mustache());
-
-
-
 //  Importa biblioteca "path" do framework express, para definir diretório absoluto.
 server.use('/static', express.static(path.join(__dirname,'../public')));
+// Habilita middleware 'req.body'.
+server.use(express.urlencoded());
 
 server.use(mainRoutes);
 
