@@ -1,5 +1,11 @@
 import { Request , Response } from "express";
+import { displayItem } from '../models/product';
+
 
 export const home = (req: Request, res: Response) => {
-  res.render('./pages/home')
-}
+  let produtos = displayItem.getAll();
+  res.render('./pages/home', {
+    produtos
+    
+  });
+};

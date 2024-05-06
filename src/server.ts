@@ -29,11 +29,11 @@ server.listen(3000);
 server.use(express.urlencoded({extended:true}));
 //  Habilitar o caminho para acessar rotas configuradas.
 server.use(mainRoutes);
+//  Configura a porta do servidor local(localhost:)
+server.listen(3000);
 //  Configuração da page '404'.
 server.use((req: Request, res: Response) => {
   res.status(404).render('pages/error');
 });
-//  Configura a porta do servidor local(localhost:)
-server.listen(3000);
 
 >>>>>>> c2b3221 (feat: :sparkles::wrench:  Criação e configuração de Controllers)

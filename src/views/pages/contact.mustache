@@ -1,21 +1,17 @@
 {{>partials/header}}
-
   <h2> Qual seu nome? </h2>
+
     <form method='POST'>
       <input type='text' name='name' placeholder='Digite aqui seu nome'>
       <input type='submit' value='Enviar!'>
     </form>
+
     <hr>
 
     {{#name}}
-      O nome digitado foi- {{name}}.
+      O nome digitado foi: {{name}}.
       <hr>
     {{/name}}
-    {{console.log(name);}}
-    
-  
-
-  
-  <a href="./">Voltar</a>
-  
+     
+  <a href="./">Voltar</a>  
 {{>partials/footer}}
