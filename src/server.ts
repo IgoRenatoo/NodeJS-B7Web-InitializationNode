@@ -11,29 +11,19 @@ server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'mustache');
 //  Configurar o Mustache como o motor de renderização para arquivos com extensão '.mustache'.
 server.engine('mustache', mustache());
+
 //  Importa biblioteca "path" do framework express, para definir diretório absoluto.
-server.use('/static', express.static(path.join(__dirname,'../public')));
-<<<<<<< HEAD
-// Habilita middleware 'req.body'.
-server.use(express.urlencoded());
-
-server.use(mainRoutes);
-
-server.use((req: Request, res: Response) => {
-  res.status(404).render('pages/error');
-});
-
-server.listen(3000);
-=======
+server.use(express.static(path.join(__dirname,'../public')));
 //  Habilita middleware 'req.body'.
 server.use(express.urlencoded({extended:true}));
+
 //  Habilitar o caminho para acessar rotas configuradas.
 server.use(mainRoutes);
+
 //  Configura a porta do servidor local(localhost:)
 server.listen(3000);
+
 //  Configuração da page '404'.
 server.use((req: Request, res: Response) => {
   res.status(404).render('pages/error');
 });
-
->>>>>>> c2b3221 (feat: :sparkles::wrench:  Criação e configuração de Controllers)
