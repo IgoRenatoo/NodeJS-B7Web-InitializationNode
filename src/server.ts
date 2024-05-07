@@ -13,6 +13,7 @@ server.set('view engine', 'mustache');
 server.engine('mustache', mustache());
 //  Importa biblioteca "path" do framework express, para definir diretório absoluto.
 server.use('/static', express.static(path.join(__dirname,'../public')));
+<<<<<<< HEAD
 // Habilita middleware 'req.body'.
 server.use(express.urlencoded());
 
@@ -23,3 +24,16 @@ server.use((req: Request, res: Response) => {
 });
 
 server.listen(3000);
+=======
+//  Habilita middleware 'req.body'.
+server.use(express.urlencoded({extended:true}));
+//  Habilitar o caminho para acessar rotas configuradas.
+server.use(mainRoutes);
+//  Configuração da page '404'.
+server.use((req: Request, res: Response) => {
+  res.status(404).render('pages/error');
+});
+//  Configura a porta do servidor local(localhost:)
+server.listen(3000);
+
+>>>>>>> c2b3221 (feat: :sparkles::wrench:  Criação e configuração de Controllers)
