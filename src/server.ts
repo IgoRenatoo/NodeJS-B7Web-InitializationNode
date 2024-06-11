@@ -1,10 +1,10 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import path from 'path';
 import mustache from 'mustache-express';
-import mainRoutes  from './routes/index';
-
+import router from './routes/index';
+import error from './error/errorHandler';
 
 const server = express();
 dotenv.config();
@@ -23,13 +23,11 @@ server.use(express.urlencoded({extended:true}));
 //  Habilita middleware de segurança as requisições.
 server.use(helmet());
 //  Habilitar o caminho para acessar rotas configuradas.
-server.use(mainRoutes);
+server.use(router);
+//  Habilitar página de error caso não haja requisição bem sucedida.
+server.use(error);
 
 //  Configura a porta do servidor local(localhost:)
 server.listen(process.env.PORT, () => {
   console.log("Servidor escutando!")
-});
-//  Configuração da page '404'.
-server.use((req: Request, res: Response) => {
-  res.status(404).render('pages/error');
 });

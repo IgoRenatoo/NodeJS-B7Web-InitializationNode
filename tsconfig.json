@@ -1,4 +1,3 @@
-//<tsc --init> para iniciar projeto TypeScript
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
